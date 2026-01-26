@@ -1,0 +1,1 @@
+This project provided me an opportunity to build something with AI assistance. Check out my [AI Usage Document](https://docs.google.com/document/d/179RmY7_tW_NUdicowcD-mIRWduMtrV359GCCsw4BfQY/edit?tab=t.0) to see how I used AI on this project.

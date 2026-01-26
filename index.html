@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noboni Sultan | Web Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%236366f1'/><text x='50' y='50' dominant-baseline='central' text-anchor='middle' font-size='50' fill='white' font-family='Arial, sans-serif' font-weight='bold'>NS</text></svg>">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">NS</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="contact">Contact</a></li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z" />
+                        </svg>
+                        <svg id="moonIcon" style="display: none;" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z" />
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Noboni Sultan</h1>
+                <p class="subtitle">Web Developer & Creative Problem Solver</p>
+                <p>I build thoughtful digital experiences that combine clean code with elegant design. Currently
+                    studying software engineering at The Marcy Lab School.</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2 class="section-title">About Me</h2>
+                    <p>I’m a software and network engineering student with a passion for building systems and
+                        applications that are reliable. I believe the best technology feels
+                        seamless—working quietly in the background.</p>
+                    <p>With a foundation in both software development and network engineering, I enjoy thinking about
+                        how things work end to end, from infrastructure to user experience. I’m especially interested in
+                        creating solutions that are practical, scalable, and thoughtfully designed.</p>
+                    <p>Outside of coding, I enjoy making pottery, and paintings; creative outlets help me
+                        approach technical problems with patience.</p>
+                </div>
+                <div>
+                    <h3 class="section-title">Technical Skills</h3>
+                    <ul class="skills-grid">
+                        <li class="skill-tag">Command Line (Terminal)</li>
+                        <li class="skill-tag">HTML</li>
+                        <li class="skill-tag">CSS</li>
+                        <li class="skill-tag">JavaScript</li>
+                        <li class="skill-tag">Git</li>
+                        <li class="skill-tag">GitHub</li>
+                        <li class="skill-tag">Procreate</li>
+                        <li class="skill-tag">C#</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Selected Projects</h2>
+            <div class="projects-grid">
+                <!-- Project:1 Bengal Bowls -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/bengal-bowls.png" alt="Bengal Bowls Website">
+                        <div class="project-overlay">
+                            <span class="view-project">View Project</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-number">01</div>
+                        <h3>Bengal Bowls</h3>
+                        <p>A food ordering website built for my aunt's food business. Users can browse the menu and
+                            place food orders online.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://provasultan-crypto.github.io/Bengal-Bowls/#" target="_blank"
+                                rel="noopener noreferrer" class="project-link">Live Site →</a>
+                            <a href="https://github.com/provasultan-crypto/Bengal-Bowls" target="_blank"
+                                rel="noopener noreferrer" class="project-link">GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2: Rock Paper Scissors -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/rock-paper-scissors.png" alt="Rock Paper Scissors CLI Game">
+                        <div class="project-overlay">
+                            <span class="view-project">View Code</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-number">02</div>
+                        <h3>Rock Paper Scissors</h3>
+                        <p>A command-line Rock Paper Scissors game where users play against the computer.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Javascript</span>
+                            <span class="tech-tag">CLI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/NoboniSultan/project-1-cli-app" target="_blank"
+                                rel="noopener noreferrer" class="project-link">View Code →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Portfolio Website -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/portfolio.png" alt="Personal Portfolio Website">
+                        <div class="project-overlay">
+                            <span class="view-project">View Site</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-number">03</div>
+                        <h3>Personal Portfolio</h3>
+                        <p>My personal portfolio website showcasing my projects, skills, and experience.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#home" class="project-link">View Site →</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 4: Four Elements Game -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/4-elements-game.png" alt="4 Elements Game">
+                        <div class="project-overlay">
+                            <span class="view-project">Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-number">04</div>
+                        <div class="project-header">
+                            <h3>Four Elements Game</h3>
+                            <span class="wip-badge">Work in Progress</span>
+                        </div>
+                        <p>A work-in-progress game featuring characters inspired by my friends at school. Focuses on
+                            elemental abilities and unique character designs.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">Unity</span>
+                            <span class="tech-tag">Tilemaps</span>
+                            <span class="tech-tag">Procreate</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="project-link disabled">Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div>
+                        <p>style="color: var(--text-secondary); font-size: 1.125rem; margin-bottom: 2rem;">I'm always
+                            open to discussing new projects, creative ideas, or opportunities to be part of something
+                            great.</p>
+                        <h3>Find Me Online</h3>
+                        <div class="contact-links">
+                            <a href="mailto:sultannoboni@gmail.com">📧 sultannoboni@gmail.com</a>
+                            <a href="https://github.com/NoboniSultan">💻 GitHub</a>
+                            <a href="https://linkedin.com/in/nobonisultan/">💼 LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" action="https://formspree.io/f/mlgjzqgw" method="POST">
+                    <input type="hidden" name="_subject" value="New contact from portfolio website">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Designed & Built by Noboni Sultan · 2026</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
