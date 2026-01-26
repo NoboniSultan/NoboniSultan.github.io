@@ -42,3 +42,18 @@ navLinks.querySelectorAll('a').forEach(link => {
         navLinks.classList.remove('active');
     });
 });
+
+//Scroll Triggered Animation
+const revealElements = document.querySelectorAll('.section-title, .about-text, .project-card');
+
+const revealOnScroll = () => {
+    revealElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+            el.classList.add('visible');
+        }
+    });
+};
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
