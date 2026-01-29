@@ -2,7 +2,7 @@
 
 ### 1. Share one technical concept that you developed greater mastery over in this project. Demonstrate how you understand that concept by sharing your mental model of the concept. Then, show how you used that concept in your project.
 
-One technical concept I developed greater mastery over in this project is CSS layout using **Flexbox, Grid, and transforms**.\
+One technical concept I developed greater mastery over in this project is CSS layout using **Flexbox**, **Grid**, and **transforms**.\
 My mental model of layout is that the parent container controls how its children behave. If I want things in a row or column, I use **Flexbox**. If I want things in rows and columns at the same time, I use **Grid**. Transforms allow me to move or animate elements visually without breaking the layout.\
 I used this concept throughout my project. For example:
 - I used Flexbox in the navigation bar to space items evenly and align them vertically.
