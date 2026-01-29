@@ -739,3 +739,42 @@ footer {
         text-align: center;
     }
 }
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1400px;
+    }
+
+    .nav-container {
+        max-width: 1400px;
+    }
+
+    .hero h1 {
+        font-size: 5rem;
+    }
+
+    .hero .subtitle {
+        font-size: 1.75rem;
+    }
+
+    .section-title {
+        font-size: 3rem;
+    }
+
+    section {
+        padding: 8rem 0;
+    }
+
+    .about-grid,
+    .contact-grid {
+        gap: 5rem;
+    }
+
+    .projects-grid {
+        gap: 2.5rem;
+    }
+
+    .project-image {
+        height: 250px;
+    }
+}
