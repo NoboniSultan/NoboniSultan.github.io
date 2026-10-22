@@ -1,0 +1,86 @@
+/* Vertical rail the entries hang off of. */
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding-left: var(--space-6);
+  border-left: 1px solid var(--border);
+}
+
+.entry {
+  position: relative;
+}
+
+/* Node on the rail, aligned to the role title's cap height. */
+.entry::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--space-6) * -1 - 4px);
+  top: 9px;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background-color: var(--accent);
+}
+
+.role {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: var(--space-1);
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  color: var(--text-secondary);
+  font-size: 14px;
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--border);
+}
+
+.dates {
+  font-size: 13px;
+}
+
+.bullets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.bullet {
+  position: relative;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding-left: var(--space-4);
+}
+
+.bullet::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--border-hover);
+}
+
+.subheading {
+  font-size: 22px;
+  margin: var(--space-16) 0 var(--space-8);
+}
+
+@media (min-width: 640px) {
+  .meta {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+
+  .dates {
+    white-space: nowrap;
+  }
+}
