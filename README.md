@@ -1,16 +1,67 @@
-# React + Vite
+# NoboniSultan.github.io
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Personal portfolio site — a single-page React app covering projects, skills,
+experience and contact.
 
-Currently, two official plugins are available:
+Live at **https://noboniSultan.github.io/**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack
 
-## React Compiler
+- **React 19 + Vite** — no framework beyond that
+- **Plain CSS Modules** — no Tailwind, no CSS-in-JS, no UI library
+- Every component written from scratch, including the icons and the carousel
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Running it
 
-## Expanding the Oxlint configuration
+```bash
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # production build into dist/
+npm run preview  # serve the production build locally
+npm run lint
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Layout
+
+```
+src/
+├── assets/
+│   ├── images/      project screenshots + portrait
+│   └── resume.pdf
+├── components/      one folder per section, each with its own CSS module
+├── data/            projects, skills, experience — the single source of truth
+├── styles/
+│   └── globals.css  design tokens, reset, shared primitives
+└── App.jsx
+```
+
+Content lives in `src/data/`, not in components. To add a project or a skill,
+edit the data file — nothing else needs touching.
+
+## Design system
+
+All colors, fonts, spacing and radii are CSS custom properties on `:root` in
+`src/styles/globals.css`. Components read from those variables only; there are
+no hard-coded values and no inline styles.
+
+## The particle portrait
+
+`src/components/Hero/ParticlePortrait.jsx` samples a portrait image every 2px
+and paints each sample as a soft dot on a canvas. Hovering scatters the
+particles outward over 350ms; leaving eases them home over 450ms. Visitors with
+`prefers-reduced-motion` get the still portrait.
+
+The source image must be same-origin — canvas pixel reads fail on hotlinked
+images. The import at the top of that file keeps it same-origin in both dev and
+the production build.
+
+## Deployment
+
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the app
+and publishes `dist/` to GitHub Pages. This is a user page served from the
+domain root, so `base` stays `'/'` in `vite.config.js`.
+
+## What still needs filling in
+
+See [PLACEHOLDERS.md](PLACEHOLDERS.md) — screenshots, a few project URLs, the
+resume PDF, and wiring the contact form to an email provider.
