@@ -1,21 +1,10 @@
 import styles from './Contact.module.css'
 
+const EMAIL = 'sultannoboni@gmail.com'
+
 const SOCIAL_LINKS = [
-  {
-    label: 'sultannoboni@gmail.com',
-    href: 'mailto:sultannoboni@gmail.com',
-    external: false,
-  },
-  {
-    label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/nobonisultan/',
-    external: true,
-  },
-  {
-    label: 'GitHub',
-    href: 'https://github.com/provasultan-crypto',
-    external: true,
-  },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/nobonisultan/' },
+  { label: 'GitHub', href: 'https://github.com/provasultan-crypto' },
 ]
 
 export default function Contact() {
@@ -38,14 +27,20 @@ export default function Contact() {
           </p>
 
           <ul className={styles.socials}>
+            {/* Email opens the visitor's mail client, so it stays in this tab. */}
+            <li>
+              <a className={styles.social} href={`mailto:${EMAIL}`}>
+                {EMAIL}
+              </a>
+            </li>
+
             {SOCIAL_LINKS.map((link) => (
               <li key={link.href}>
                 <a
                   className={styles.social}
                   href={link.href}
-                  {...(link.external
-                    ? { target: '_blank', rel: 'noopener noreferrer' }
-                    : {})}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {link.label}
                 </a>

@@ -27,7 +27,7 @@ export const projects = [
     image: arrearImg,
     // TODO: add live URL
     liveUrl: '#',
-    // TODO: add live URL
+    // TODO: add GitHub repo URL
     githubUrl: '#',
     featured: true,
   },
@@ -67,7 +67,7 @@ export const projects = [
     // TODO: add screenshot → src/assets/images/taka-talk.png
     image: takaTalkImg,
     liveUrl: 'https://envelope.build/taka-talk',
-    // TODO: add live URL
+    // TODO: add GitHub repo URL
     githubUrl: '#',
     featured: false,
   },
@@ -82,7 +82,7 @@ export const projects = [
     image: flamingoImg,
     // TODO: add live URL
     liveUrl: '#',
-    // TODO: add live URL
+    // TODO: add GitHub repo URL
     githubUrl: '#',
     featured: false,
   },
@@ -97,7 +97,7 @@ export const projects = [
     image: boiImg,
     // TODO: add live URL
     liveUrl: '#',
-    // TODO: add live URL
+    // TODO: add GitHub repo URL
     githubUrl: '#',
     featured: false,
   },
@@ -112,7 +112,7 @@ export const projects = [
     image: pediamapImg,
     // TODO: add live URL
     liveUrl: '#',
-    // TODO: add live URL
+    // TODO: add GitHub repo URL
     githubUrl: '#',
     featured: false,
   },

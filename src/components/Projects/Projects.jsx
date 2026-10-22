@@ -4,7 +4,7 @@ import ProjectCard from './ProjectCard'
 import styles from './Projects.module.css'
 
 function ArrowIcon({ direction }) {
-  // One path, mirrored for "previous" — keeps both arrows visually identical.
+  // One path, flipped for "previous" — keeps both arrows visually identical.
   return (
     <svg
       viewBox="0 0 16 16"
@@ -16,7 +16,7 @@ function ArrowIcon({ direction }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
-      style={{ transform: direction === 'prev' ? 'rotate(180deg)' : undefined }}
+      className={direction === 'prev' ? styles.arrowFlipped : undefined}
     >
       <path d="M6 3.5 10.5 8 6 12.5" />
     </svg>

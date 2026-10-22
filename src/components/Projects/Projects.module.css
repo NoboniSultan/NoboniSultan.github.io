@@ -37,6 +37,10 @@
   background-color: var(--bg-surface-hover);
 }
 
+.arrowFlipped {
+  transform: rotate(180deg);
+}
+
 .arrowButton:disabled {
   opacity: 0.35;
   cursor: not-allowed;
