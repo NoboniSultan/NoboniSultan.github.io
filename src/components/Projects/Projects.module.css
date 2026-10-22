@@ -1,3 +1,101 @@
-.placeholder {
-  padding: 48px 0;
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.header .sectionTitle {
+  margin-bottom: 0;
+}
+
+.arrows {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.arrowButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--text-secondary);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition:
+    color var(--transition),
+    border-color var(--transition),
+    background-color var(--transition);
+}
+
+.arrowButton:hover:not(:disabled) {
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+  background-color: var(--bg-surface-hover);
+}
+
+.arrowButton:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Native scroll-snap carousel: swipe, arrow buttons and keyboard all move the
+   same scroll position, so there is only one source of truth for position. */
+.track {
+  position: relative;
+  display: flex;
+  gap: var(--space-6);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-bottom: var(--space-2);
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background-color: var(--border);
+  transition:
+    background-color var(--transition),
+    width var(--transition);
+}
+
+.dot:hover {
+  background-color: var(--border-hover);
+}
+
+.dotActive {
+  width: 24px;
+  background-color: var(--accent);
+}
+
+.dotActive:hover {
+  background-color: var(--accent-hover);
+}
+
+@media (min-width: 1024px) {
+  /* One full card plus a peek of the next, hinting there is more to browse. */
+  .slide {
+    flex-basis: 86%;
+  }
 }
