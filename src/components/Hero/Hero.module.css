@@ -1,3 +1,97 @@
-.placeholder {
-  padding: 48px 0;
+.hero {
+  padding-block: var(--space-16) var(--space-24);
+}
+
+.inner {
+  display: grid;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+.name {
+  font-size: 44px;
+  margin-bottom: var(--space-6);
+}
+
+.impact {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-6);
+  max-width: 34ch;
+}
+
+.body {
+  color: var(--text-secondary);
+  font-size: 15px;
+  max-width: 56ch;
+  margin-bottom: var(--space-8);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.portrait {
+  display: flex;
+  justify-content: center;
+}
+
+/* Dashed frame reads as "art goes here" until the real portrait lands. */
+.portraitPlaceholder {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-lg);
+  background-color: var(--bg-surface);
+  padding: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .name {
+    font-size: 56px;
+  }
+
+  .impact {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    /* 60 / 40 split — text column leads, portrait sits beside it. */
+    grid-template-columns: 6fr 4fr;
+    gap: var(--space-16);
+  }
+
+  .name {
+    font-size: 64px;
+  }
+
+  .impact {
+    font-size: 26px;
+  }
+
+  .body {
+    font-size: 16px;
+  }
+
+  .portraitPlaceholder {
+    max-width: 380px;
+  }
 }
