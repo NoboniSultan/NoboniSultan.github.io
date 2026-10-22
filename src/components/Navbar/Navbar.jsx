@@ -1,5 +1,57 @@
+import { useEffect, useState } from 'react'
 import styles from './Navbar.module.css'
+// TODO: replace src/assets/resume.pdf with your latest resume PDF
+import resumeUrl from '../../assets/resume.pdf'
+
+const NAV_LINKS = [
+  { label: 'Projects', href: '#projects' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Contact', href: '#contact' },
+]
+
+// Distance scrolled before the bar picks up its blurred background.
+const SCROLL_THRESHOLD = 50
 
 export default function Navbar() {
-  return <div className={styles.placeholder}>Navbar</div>
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > SCROLL_THRESHOLD)
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  return (
+    <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
+      <nav className={`container ${styles.inner}`} aria-label="Main">
+        <a href="#top" className={styles.name}>
+          Noboni Sultan
+        </a>
+
+        <div className={styles.links}>
+          <ul className={styles.linkList}>
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} className={styles.link}>
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <a
+            className={styles.resume}
+            href={resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Resume
+          </a>
+        </div>
+      </nav>
+    </header>
+  )
 }

@@ -64,7 +64,7 @@
 html {
   scroll-behavior: smooth;
   /* Keeps anchored sections clear of the sticky navbar. */
-  scroll-padding-top: var(--space-16);
+  scroll-padding-top: calc(64px + var(--space-6));
   -webkit-text-size-adjust: 100%;
 }
 
