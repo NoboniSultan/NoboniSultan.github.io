@@ -1,7 +1,7 @@
 import styles from './Hero.module.css'
 // TODO: replace img src with your portrait photo path
-// (drop the file in src/assets/images/ and point this import at it)
-import portraitPlaceholder from '../../assets/images/portrait-placeholder.svg'
+// (see the PORTRAIT SETUP note at the top of ParticlePortrait.jsx)
+import ParticlePortrait from './ParticlePortrait'
 
 export default function Hero() {
   return (
@@ -37,13 +37,7 @@ export default function Hero() {
         </div>
 
         <div className={styles.portrait}>
-          <img
-            className={styles.portraitPlaceholder}
-            src={portraitPlaceholder}
-            alt="Portrait of Noboni Sultan"
-            width="600"
-            height="600"
-          />
+          <ParticlePortrait />
         </div>
       </div>
     </section>

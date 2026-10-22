@@ -51,15 +51,27 @@
 }
 
 /* Dashed frame reads as "art goes here" until the real portrait lands. */
-.portraitPlaceholder {
+.portraitCanvasWrapper {
   width: 100%;
   max-width: 320px;
   aspect-ratio: 1;
-  object-fit: contain;
   border: 1px dashed var(--border);
   border-radius: var(--radius-lg);
   background-color: var(--bg-surface);
-  padding: var(--space-4);
+  transition: border-color var(--transition);
+}
+
+.portraitCanvasWrapper:hover {
+  border-color: var(--border-hover);
+}
+
+.portraitCanvas {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-lg);
+  /* Painterly softening for the particle dots. Applied here rather than via
+     ctx.filter, which silently renders nothing on 2x displays in Chrome. */
+  filter: blur(0.2px);
 }
 
 @media (min-width: 640px) {
@@ -91,7 +103,7 @@
     font-size: 16px;
   }
 
-  .portraitPlaceholder {
+  .portraitCanvasWrapper {
     max-width: 380px;
   }
 }
