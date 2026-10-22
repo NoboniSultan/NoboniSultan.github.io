@@ -9,6 +9,7 @@ export default function App() {
   return (
     <>
       <Navbar />
+
       <main>
         <Hero />
         <Projects />
@@ -16,6 +17,10 @@ export default function App() {
         <Experience />
         <Contact />
       </main>
+
+      <footer className="siteFooter">
+        Designed &amp; Built by Noboni Sultan · 2026
+      </footer>
     </>
   )
 }
