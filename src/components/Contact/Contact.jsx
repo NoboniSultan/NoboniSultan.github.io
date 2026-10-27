@@ -4,7 +4,7 @@ const EMAIL = 'sultannoboni@gmail.com'
 
 const SOCIAL_LINKS = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/nobonisultan/' },
-  { label: 'GitHub', href: 'https://github.com/provasultan-crypto' },
+  { label: 'GitHub', href: 'https://github.com/NoboniSultan' },
 ]
 
 export default function Contact() {

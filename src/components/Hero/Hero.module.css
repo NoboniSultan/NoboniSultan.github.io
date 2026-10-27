@@ -51,25 +51,20 @@
   justify-content: center;
 }
 
+/* No frame of any kind: the portrait has to be able to disperse into the page
+   with nothing left behind, so the container matches the page background. */
 .portraitCanvasWrapper {
   width: 100%;
   max-width: 320px;
   aspect-ratio: 1;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background-color: var(--bg-surface);
-  overflow: hidden;
-  transition: border-color var(--transition);
-}
-
-.portraitCanvasWrapper:hover {
-  border-color: var(--border-hover);
+  border: none;
+  outline: none;
+  background: var(--bg-primary);
 }
 
 .portraitCanvas {
   width: 100%;
   height: 100%;
-  border-radius: var(--radius-lg);
   /* Painterly softening for the particle dots. Applied here rather than via
      ctx.filter, which silently renders nothing on 2x displays in Chrome. */
   filter: blur(0.2px);
