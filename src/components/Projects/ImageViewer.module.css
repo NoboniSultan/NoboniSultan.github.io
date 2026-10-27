@@ -194,25 +194,6 @@
   background-color: var(--accent);
 }
 
-.closeButton {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-1);
-  font-size: 12px;
-  color: var(--text-secondary);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: var(--space-1) var(--space-2);
-  transition:
-    color var(--transition),
-    border-color var(--transition);
-}
-
-.closeButton:hover {
-  color: var(--text-primary);
-  border-color: var(--border-hover);
-}
-
 .caption {
   color: var(--text-secondary);
   font-size: 12px;

@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import Button from '../ui/Button'
 import styles from './ImageViewer.module.css'
 
 // 2x2 grid badge — the hint that there is more than one screen behind the cover.
@@ -195,16 +196,16 @@ export default function ImageViewer({ project }) {
               <StepArrow direction="next" />
             </button>
 
-            <button
-              type="button"
-              className={styles.closeButton}
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={close}
               aria-label="Close gallery"
               tabIndex={expanded ? 0 : -1}
             >
               <CloseIcon />
               Close
-            </button>
+            </Button>
           </div>
 
           <p className={styles.caption}>{activeImage.caption}</p>

@@ -45,21 +45,6 @@
   flex-shrink: 0;
 }
 
-.link {
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: var(--text-secondary);
-  white-space: nowrap;
-  transition: color var(--transition);
-}
-
-.link:hover {
-  color: var(--accent-hover);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
 .description {
   color: var(--text-secondary);
   font-size: 14px;

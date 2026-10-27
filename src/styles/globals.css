@@ -212,43 +212,6 @@ ol {
   white-space: nowrap;
 }
 
-/* Shared button shapes. */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  font-family: var(--font-heading);
-  font-size: 14px;
-  font-weight: 600;
-  padding: var(--space-3) var(--space-6);
-  border-radius: var(--radius-md);
-  border: 1px solid transparent;
-  transition:
-    background-color var(--transition),
-    border-color var(--transition),
-    color var(--transition);
-}
-
-.btnPrimary {
-  background-color: var(--accent);
-  color: var(--text-primary);
-}
-
-.btnPrimary:hover {
-  background-color: var(--accent-hover);
-}
-
-.btnSecondary {
-  border-color: var(--border);
-  color: var(--text-primary);
-}
-
-.btnSecondary:hover {
-  border-color: var(--border-hover);
-  background-color: var(--bg-surface);
-}
-
 /* Screen-reader-only text. */
 .srOnly {
   position: absolute;

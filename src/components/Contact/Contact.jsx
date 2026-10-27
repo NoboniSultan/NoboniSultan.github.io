@@ -1,3 +1,4 @@
+import Button from '../ui/Button'
 import styles from './Contact.module.css'
 
 const EMAIL = 'sultannoboni@gmail.com'
@@ -91,9 +92,9 @@ export default function Contact() {
             />
           </div>
 
-          <button type="submit" className={`btn btnPrimary ${styles.submit}`}>
+          <Button type="submit" variant="primary" size="lg" className={styles.submit}>
             Send Message
-          </button>
+          </Button>
         </form>
       </div>
     </section>

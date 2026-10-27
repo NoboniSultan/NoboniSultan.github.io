@@ -1,3 +1,4 @@
+import Button from '../ui/Button'
 import ImageViewer from './ImageViewer'
 import styles from './ProjectCard.module.css'
 
@@ -21,26 +22,26 @@ export default function ProjectCard({ project }) {
           {/* A null URL renders nothing — never a dead '#' link. */}
           <div className={styles.linkRow}>
             {liveUrl && (
-              <a
-                className={styles.link}
+              <Button
                 href={liveUrl}
+                variant="ghost"
+                size="sm"
                 target="_blank"
-                rel="noopener noreferrer"
                 aria-label={`${title} live demo`}
               >
                 Live Demo ↗
-              </a>
+              </Button>
             )}
             {githubUrl && (
-              <a
-                className={styles.link}
+              <Button
                 href={githubUrl}
+                variant="ghost"
+                size="sm"
                 target="_blank"
-                rel="noopener noreferrer"
                 aria-label={`${title} GitHub repo`}
               >
                 GitHub ↗
-              </a>
+              </Button>
             )}
           </div>
         </header>

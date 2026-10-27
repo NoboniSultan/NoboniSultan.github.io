@@ -1,3 +1,4 @@
+import Button from '../ui/Button'
 import styles from './Hero.module.css'
 // TODO: replace img src with your portrait photo path
 // (see the PORTRAIT SETUP note at the top of ParticlePortrait.jsx)
@@ -27,12 +28,12 @@ export default function Hero() {
           </p>
 
           <div className={styles.actions}>
-            <a href="#projects" className="btn btnPrimary">
+            <Button href="#projects" variant="primary" size="lg">
               View Projects
-            </a>
-            <a href="#contact" className="btn btnSecondary">
+            </Button>
+            <Button href="#contact" variant="secondary" size="lg">
               Get in Touch
-            </a>
+            </Button>
           </div>
         </div>
 

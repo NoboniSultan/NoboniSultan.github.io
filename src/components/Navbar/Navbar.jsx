@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Button from '../ui/Button'
 import ThemeToggle from './ThemeToggle'
 import styles from './Navbar.module.css'
 // TODO: replace src/assets/resume.pdf with your latest resume PDF
@@ -45,14 +46,9 @@ export default function Navbar({ theme, onToggleTheme }) {
 
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
 
-          <a
-            className={styles.resume}
-            href={resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Button href={resumeUrl} variant="secondary" size="sm" target="_blank">
             Resume
-          </a>
+          </Button>
         </div>
       </nav>
     </header>
