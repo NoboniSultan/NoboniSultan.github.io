@@ -1,3 +1,4 @@
+import ImageViewer from './ImageViewer'
 import styles from './ProjectCard.module.css'
 
 // Inline SVG keeps the card dependency-free — no icon library, no emoji.
@@ -33,19 +34,12 @@ function ExternalLinkIcon() {
 const hasUrl = (url) => Boolean(url) && url !== '#'
 
 export default function ProjectCard({ project }) {
-  const { title, tagline, description, tags, image, liveUrl, githubUrl } = project
+  const { title, tagline, description, tags, liveUrl, githubUrl } = project
   const headingId = `project-${project.id}-title`
 
   return (
     <article className={styles.card} aria-labelledby={headingId}>
-      <div className={styles.media}>
-        <img
-          className={styles.image}
-          src={image}
-          alt={`${title} screenshot`}
-          loading="lazy"
-        />
-      </div>
+      <ImageViewer project={project} />
 
       <div className={styles.content}>
         <header className={styles.header}>
