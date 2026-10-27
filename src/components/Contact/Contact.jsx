@@ -1,7 +1,5 @@
-import Button from '../ui/Button'
+import Envelope from './Envelope'
 import styles from './Contact.module.css'
-
-const EMAIL = 'sultannoboni@gmail.com'
 
 const SOCIAL_LINKS = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/nobonisultan/' },
@@ -9,11 +7,6 @@ const SOCIAL_LINKS = [
 ]
 
 export default function Contact() {
-  // TODO: wire to Resend API or Formspree for actual email delivery
-  const handleSubmit = (event) => {
-    event.preventDefault()
-  }
-
   return (
     <section id="contact" className="section" aria-labelledby="contact-heading">
       <div className={`container ${styles.inner}`}>
@@ -27,14 +20,9 @@ export default function Contact() {
             Whether you have a question or just want to say hi — my inbox is open.
           </p>
 
+          {/* The email address lives on the letterhead inside the envelope
+              rather than being repeated here. */}
           <ul className={styles.socials}>
-            {/* Email opens the visitor's mail client, so it stays in this tab. */}
-            <li>
-              <a className={styles.social} href={`mailto:${EMAIL}`}>
-                {EMAIL}
-              </a>
-            </li>
-
             {SOCIAL_LINKS.map((link) => (
               <li key={link.href}>
                 <a
@@ -50,52 +38,7 @@ export default function Contact() {
           </ul>
         </div>
 
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <div className={styles.field}>
-            <label className={styles.label} htmlFor="contact-name">
-              Name
-            </label>
-            <input
-              className={styles.input}
-              id="contact-name"
-              name="name"
-              type="text"
-              autoComplete="name"
-              required
-            />
-          </div>
-
-          <div className={styles.field}>
-            <label className={styles.label} htmlFor="contact-email">
-              Email
-            </label>
-            <input
-              className={styles.input}
-              id="contact-email"
-              name="email"
-              type="email"
-              autoComplete="email"
-              required
-            />
-          </div>
-
-          <div className={styles.field}>
-            <label className={styles.label} htmlFor="contact-message">
-              Message
-            </label>
-            <textarea
-              className={`${styles.input} ${styles.textarea}`}
-              id="contact-message"
-              name="message"
-              rows={5}
-              required
-            />
-          </div>
-
-          <Button type="submit" variant="primary" size="lg" className={styles.submit}>
-            Send Message
-          </Button>
-        </form>
+        <Envelope />
       </div>
     </section>
   )
