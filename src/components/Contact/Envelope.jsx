@@ -229,9 +229,24 @@ export default function Envelope() {
               {buttonLabel}
             </Button>
 
+            {status === 'handoff' && (
+              <p className={styles.note}>
+                Your email app should be opening with this message ready to
+                send. Nothing happening? Write to{' '}
+                <a className={styles.noteLink} href={`mailto:${EMAIL}`}>
+                  {EMAIL}
+                </a>
+                .
+              </p>
+            )}
+
             {status === 'error' && (
-              <p className={styles.error}>
-                Something went wrong — try emailing me directly.
+              <p className={styles.note}>
+                Something went wrong — try emailing me directly at{' '}
+                <a className={styles.noteLink} href={`mailto:${EMAIL}`}>
+                  {EMAIL}
+                </a>
+                .
               </p>
             )}
           </form>

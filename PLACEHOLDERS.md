@@ -99,18 +99,20 @@ A link set to `null` renders no button at all — never a dead `'#'`.
 
 - [x] `src/assets/resume.pdf` — your real resume is in place
 
-## Contact form — needs a Formspree endpoint
+## Contact form — works now, but through the visitor's email app
 
-- [ ] **`FORMSPREE_ENDPOINT` in [src/hooks/useContactForm.js](src/hooks/useContactForm.js)**
-      is still `'YOUR_FORMSPREE_ENDPOINT_HERE'`.
+The form no longer fails. With no Formspree endpoint set it hands the message
+to the visitor's own mail client, pre-filled and addressed to you.
 
-Create a free form at [formspree.io/forms](https://formspree.io/forms), copy
-the endpoint (it looks like `https://formspree.io/f/xxxxxxxx`) and paste it in.
-That is the only change needed — the POST, the button states and the
-aria-live announcements are already wired.
+- [ ] **Optional, 2 minutes:** create a form at
+      [formspree.io/forms](https://formspree.io/forms) and paste the endpoint
+      into `FORMSPREE_ENDPOINT` in
+      [src/hooks/useContactForm.js](src/hooks/useContactForm.js).
 
-Until then the form deliberately fails and tells the visitor to email
-directly, rather than accepting a message and dropping it.
+With an endpoint set, the message posts in the background and the visitor
+never leaves the page — which converts better, since anyone without a mail
+client configured currently hits a dead end. The code switches automatically;
+nothing else to change.
 
 ## Original assets
 

@@ -12,6 +12,14 @@
 // are copy dates, not when the work was made). Fill `year` in and it appears
 // after the medium; left null, the card shows the medium alone.
 //
+// Array order is the STACK order — whatever sits first here is the piece on
+// top of the collapsed heap.
+//
+// `hue` drives the spread order instead: monochrome pieces (hue: null) come
+// first, then everything else runs through the spectrum. The values were
+// measured by sampling each image, weighting mid-tone saturated pixels, so
+// they reflect what the piece actually looks like rather than a guess.
+//
 // The section hides itself entirely when this array is empty.
 
 import mask from '../assets/images/art/art-mask.jpg'
@@ -34,88 +42,100 @@ import mirrored from '../assets/images/art/art-mirrored.jpg'
 export const artworks = [
   {
     id: 1,
-    title: 'Mandala Mask',
-    medium: 'Clay and henna, mixed media',
+    title: 'I Stay, I Pray',
+    medium: 'Digital',
     year: null,
-    image: mask,
+    hue: 0,
+    image: iStayIPray,
   },
   {
     id: 2,
-    title: 'Fawn',
-    medium: 'Scratchboard',
+    title: 'Mandala Mask',
+    medium: 'Clay and henna, mixed media',
     year: null,
-    image: fawn,
+    hue: 33,
+    image: mask,
   },
   {
     id: 3,
-    title: 'Two Faces',
-    medium: 'Acrylic and henna on canvas',
+    title: 'Fawn',
+    medium: 'Scratchboard',
     year: null,
-    image: twoFaces,
+    hue: null,
+    image: fawn,
   },
   {
     id: 4,
-    title: 'Deck Mandala',
-    medium: 'Acrylic on wood',
+    title: 'Two Faces',
+    medium: 'Acrylic and henna on canvas',
     year: null,
-    image: deckMandala,
+    hue: 58,
+    image: twoFaces,
   },
   {
     id: 5,
-    title: 'Stargazer',
-    medium: 'Ink and digital',
+    title: 'Deck Mandala',
+    medium: 'Acrylic on wood',
     year: null,
-    image: stargazer,
+    hue: 3,
+    image: deckMandala,
   },
   {
     id: 6,
-    title: 'Sewn Portrait',
-    medium: 'Hand embroidery on fabric',
+    title: 'Stargazer',
+    medium: 'Ink and digital',
     year: null,
-    image: sewnPortrait,
+    hue: 249,
+    image: stargazer,
   },
   {
     id: 7,
+    title: 'Sewn Portrait',
+    medium: 'Hand embroidery on fabric',
+    year: null,
+    hue: 5,
+    image: sewnPortrait,
+  },
+  {
+    id: 8,
     // Your scratchboard rendering of Van Gogh's painting — rename if you'd
     // rather not credit the source in the title.
     title: 'Starry Night, after Van Gogh',
     medium: 'Scratchboard',
     year: null,
+    hue: null,
     image: starryNight,
   },
   {
-    id: 8,
+    id: 9,
     title: 'Goddess',
     medium: 'Digital',
     year: null,
+    hue: 24,
     image: goddess,
   },
   {
-    id: 9,
+    id: 10,
     title: 'Embrace',
     medium: 'Charcoal on paper',
     year: null,
+    hue: null,
     image: embrace,
   },
   {
-    id: 10,
+    id: 11,
     title: 'Painted Bench',
     medium: 'Acrylic on wood',
     year: null,
+    hue: 209,
     image: bench,
-  },
-  {
-    id: 11,
-    title: 'I Stay, I Pray',
-    medium: 'Digital',
-    year: null,
-    image: iStayIPray,
   },
   {
     id: 12,
     title: 'Floral Study',
     medium: 'Digital',
     year: null,
+    hue: 21,
     image: floral,
   },
   {
@@ -123,6 +143,7 @@ export const artworks = [
     title: 'Portrait Panel',
     medium: 'Acrylic on board',
     year: null,
+    hue: 107,
     image: panel,
   },
   {
@@ -130,6 +151,7 @@ export const artworks = [
     title: 'Portrait Panel, detail',
     medium: 'Acrylic on board',
     year: null,
+    hue: 168,
     image: panelDetail,
   },
   {
@@ -137,6 +159,7 @@ export const artworks = [
     title: 'Clay Head',
     medium: 'Clay',
     year: null,
+    hue: null,
     image: clayHead,
   },
   {
@@ -144,6 +167,7 @@ export const artworks = [
     title: 'Mirrored',
     medium: 'Digital',
     year: null,
+    hue: 229,
     image: mirrored,
   },
 ]

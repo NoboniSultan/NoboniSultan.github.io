@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { artworks } from '../../data/artworks'
 import Lightbox from './Lightbox'
 import styles from './Art.module.css'
@@ -37,6 +37,20 @@ function spreadStyle(id, index) {
 export default function Art() {
   const [isSpread, setIsSpread] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(null)
+
+  // Spread runs by colour: the monochrome pieces first, then the rest through
+  // the spectrum. Sorting a copy leaves the array order alone, which is what
+  // the collapsed heap stacks by.
+  const byColour = useMemo(
+    () =>
+      [...artworks].sort((a, b) => {
+        if (a.hue === null && b.hue === null) return 0
+        if (a.hue === null) return -1
+        if (b.hue === null) return 1
+        return a.hue - b.hue
+      }),
+    [],
+  )
 
   if (artworks.length === 0) return null
 
@@ -88,16 +102,14 @@ export default function Art() {
                 </span>
               ))}
 
-              <span className={styles.pileHint}>
-                {artworks.length} pieces — click to spread
-              </span>
+              <span className={styles.pileHint}>click to spread</span>
             </button>
           )}
         </div>
 
         {isSpread && (
           <ul className={styles.spread}>
-            {artworks.map((artwork, index) => (
+            {byColour.map((artwork, index) => (
               <li
                 key={artwork.id}
                 className={styles.spreadItem}
@@ -134,7 +146,7 @@ export default function Art() {
 
       {lightboxIndex !== null && (
         <Lightbox
-          artworks={artworks}
+          artworks={byColour}
           index={lightboxIndex}
           onClose={() => setLightboxIndex(null)}
           onNavigate={setLightboxIndex}
