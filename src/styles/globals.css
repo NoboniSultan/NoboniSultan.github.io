@@ -47,6 +47,20 @@
   --transition: 200ms ease;
 }
 
+/* Light theme: only the token values flip — no component styles change,
+   because every component already reads from these variables. */
+[data-theme='light'] {
+  --bg-primary: #f8f8f5;
+  --bg-surface: #ffffff;
+  --bg-surface-hover: #f0f0ec;
+  --border: #e2e2dc;
+  --border-hover: #c8c8c0;
+  --text-primary: #111110;
+  --text-secondary: #6b6b68;
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+}
+
 /* ==========================================================================
    RESET
    ========================================================================== */
@@ -71,6 +85,9 @@ html {
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 400;

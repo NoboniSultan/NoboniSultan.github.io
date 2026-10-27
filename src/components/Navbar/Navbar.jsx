@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import ThemeToggle from './ThemeToggle'
 import styles from './Navbar.module.css'
 // TODO: replace src/assets/resume.pdf with your latest resume PDF
 import resumeUrl from '../../assets/resume.pdf'
@@ -13,7 +14,7 @@ const NAV_LINKS = [
 // Distance scrolled before the bar picks up its blurred background.
 const SCROLL_THRESHOLD = 50
 
-export default function Navbar() {
+export default function Navbar({ theme, onToggleTheme }) {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
@@ -41,6 +42,8 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
+
+          <ThemeToggle theme={theme} onToggle={onToggleTheme} />
 
           <a
             className={styles.resume}

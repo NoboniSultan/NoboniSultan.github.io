@@ -1,0 +1,41 @@
+.track {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  transition: border-color var(--transition);
+}
+
+.track:hover {
+  border-color: var(--border-hover);
+}
+
+.knob {
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  color: var(--text-secondary);
+  background-color: var(--bg-primary);
+  border-radius: 999px;
+  /* translateY keeps it centred; translateX is the part that animates. */
+  transform: translate(0, -50%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.knobDark {
+  transform: translate(20px, -50%);
+}
+
+.track:hover .knob {
+  color: var(--text-primary);
+}
