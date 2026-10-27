@@ -1,21 +1,8 @@
 import styles from './ThemeToggle.module.css'
-
-// Filled disc for dark, outlined ring for light — the same shape either way,
-// so only the fill changes as the knob slides.
-function ThemeIcon({ theme }) {
-  return (
-    <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true">
-      <circle
-        cx="6"
-        cy="6"
-        r="4"
-        fill={theme === 'dark' ? 'currentColor' : 'none'}
-        stroke="currentColor"
-        strokeWidth="1.5"
-      />
-    </svg>
-  )
-}
+// Noboni's own bulb drawings, cropped to the glass so they still read at
+// knob size. Unlit for dark mode, lit for light.
+import bulbDark from '../../assets/images/bulb-dark.png'
+import bulbLight from '../../assets/images/bulb-light.png'
 
 export default function ThemeToggle({ theme, onToggle }) {
   const isDark = theme === 'dark'
@@ -29,7 +16,13 @@ export default function ThemeToggle({ theme, onToggle }) {
       aria-pressed={isDark}
     >
       <span className={`${styles.knob} ${isDark ? styles.knobDark : ''}`}>
-        <ThemeIcon theme={theme} />
+        {/* The icon shows the state you are in, not the one you would get. */}
+        <img
+          className={styles.bulb}
+          src={isDark ? bulbDark : bulbLight}
+          alt=""
+          aria-hidden="true"
+        />
       </span>
     </button>
   )
