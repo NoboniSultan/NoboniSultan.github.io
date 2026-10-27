@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react'
 import useTypewriter from '../../hooks/useTypewriter'
 import Button from '../ui/Button'
 import styles from './Hero.module.css'
-// TODO: replace img src with your portrait photo path
-// (see the PORTRAIT SETUP note at the top of ParticlePortrait.jsx)
+// To swap the portrait, see the PORTRAIT SETUP note in ParticlePortrait.jsx
 import ParticlePortrait from './ParticlePortrait'
 
 const GREETING = "Hey, I'm Noboni Sultan"

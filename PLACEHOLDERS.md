@@ -62,26 +62,50 @@ to trace a cut-out silhouette instead, export a version with a transparent
 background and repoint the import in
 [ParticlePortrait.jsx](src/components/Hero/ParticlePortrait.jsx).
 
-## Links to update in `src/data/projects.js`
+## Art images to add
 
-Any URL still set to `'#'` hides that icon on the card, because a dead link
-reads worse than no link. Fill one in and its icon appears.
+- [ ] `src/assets/images/art/` — add your artwork images here.
+      Naming convention: `art-1.jpg`, `art-2.jpg`, etc.
+      Then update [src/data/artworks.js](src/data/artworks.js) with matching
+      imports, titles, mediums, and years.
 
-- [ ] Arrear `liveUrl` + `githubUrl`
-- [ ] Taka Talk `githubUrl`
-- [ ] Flamingo Lab `liveUrl` + `githubUrl`
-- [ ] Boi `liveUrl` + `githubUrl`
-- [ ] PediaMap `liveUrl` + `githubUrl`
+Only the self-portrait is in there so far. I did not pull anything from
+`~/Desktop/coolpix/art` — that folder holds other artists' work alongside
+yours, and publishing someone else's painting under your name is not a
+mistake worth risking. Point me at your own art folder and I will wire it up.
+
+The section hides itself entirely while the array is empty, so there is no
+broken-looking gap if you remove everything.
+
+## Links in `src/data/projects.js`
+
+A link set to `null` renders no button at all — never a dead `'#'`.
+
+- [x] Arrear `liveUrl`
+- [x] Compass `liveUrl` + `githubUrl`
+- [x] Bengal Bowls `liveUrl`
+- [x] Taka Talk `liveUrl`
+- [x] Flamingo Lab `githubUrl`
+- [x] PediaMap `githubUrl`
+- [ ] Boi has neither — add one if the project is deployed or public
+- [ ] Arrear, Bengal Bowls, Taka Talk `githubUrl` — null if these stay private
 
 ## Resume
 
 - [x] `src/assets/resume.pdf` — your real resume is in place
 
-## Contact form
+## Contact form — needs a Formspree endpoint
 
-- [ ] Wire the form to an email provider — see the TODO in
-      [Contact.jsx](src/components/Contact/Contact.jsx). Resend or Formspree
-      both work without a backend. Right now submitting does nothing.
+- [ ] **`FORMSPREE_ENDPOINT` in [src/hooks/useContactForm.js](src/hooks/useContactForm.js)**
+      is still `'YOUR_FORMSPREE_ENDPOINT_HERE'`.
+
+Create a free form at [formspree.io/forms](https://formspree.io/forms), copy
+the endpoint (it looks like `https://formspree.io/f/xxxxxxxx`) and paste it in.
+That is the only change needed — the POST, the button states and the
+aria-live announcements are already wired.
+
+Until then the form deliberately fails and tells the visitor to email
+directly, rather than accepting a message and dropping it.
 
 ## Original assets
 

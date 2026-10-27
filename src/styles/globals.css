@@ -45,6 +45,12 @@
 
   /* Motion */
   --transition: 200ms ease;
+
+  /* Elevation. Shadows need different weight per theme: the same black that
+     reads as depth on a dark surface turns to grime on a light one. */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 /* Light theme: only the token values flip — no component styles change,
@@ -59,6 +65,10 @@
   --text-secondary: #6b6b68;
   --accent: #6366f1;
   --accent-hover: #4f46e5;
+
+  --shadow-sm: 0 2px 8px rgba(17, 17, 16, 0.08);
+  --shadow-md: 0 8px 24px rgba(17, 17, 16, 0.12);
+  --shadow-lg: 0 10px 32px rgba(17, 17, 16, 0.14);
 }
 
 /* ==========================================================================

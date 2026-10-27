@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import Button from '../ui/Button'
 import ThemeToggle from './ThemeToggle'
 import styles from './Navbar.module.css'
-// TODO: replace src/assets/resume.pdf with your latest resume PDF
 import resumeUrl from '../../assets/resume.pdf'
 
 const NAV_LINKS = [
