@@ -15,12 +15,80 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-secondary);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+/* Lines 2–4 wait for the greeting to finish typing, then rise into place.
+   Each is nudged later than the last so they arrive in reading order. */
+.eyebrow,
+.impact,
+.body,
+.actions {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 400ms ease,
+    transform 400ms ease;
+}
+
+.impact {
+  transition-delay: 200ms;
+}
+
+.body {
+  transition-delay: 320ms;
+}
+
+.actions {
+  transition-delay: 440ms;
+}
+
+.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* The typed line keeps its own height while empty so nothing jumps. */
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  font-weight: 400;
+  color: var(--accent);
+  animation: cursorBlink 530ms steps(1, end) infinite;
+}
+
+@keyframes cursorBlink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* No typing, no staggered rise — everything is simply present. */
+  .eyebrow,
+  .impact,
+  .body,
+  .actions {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .cursor {
+    display: none;
+  }
 }
 
 .name {
-  font-size: 44px;
-  margin-bottom: var(--space-6);
+  font-size: 36px;
+  margin-bottom: var(--space-4);
+  /* Reserve two lines so the layout does not jump as the text types in. */
+  min-height: 2.4em;
 }
 
 .impact {
@@ -76,7 +144,7 @@
   }
 
   .name {
-    font-size: 56px;
+    font-size: 48px;
   }
 
   .impact {
@@ -92,7 +160,8 @@
   }
 
   .name {
-    font-size: 64px;
+    font-size: 56px;
+    min-height: 1.2em;
   }
 
   .impact {
