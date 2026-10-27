@@ -1,24 +1,143 @@
+/* Collapsed: text and heap share a row, which is what keeps the section
+   short. Spread: the text steps aside and the work takes the width. */
+.headerSplit,
+.headerWide {
+  display: grid;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.headerWide {
+  margin-bottom: var(--space-8);
+}
+
+.headerSplit .sectionTitle,
+.headerWide .sectionTitle {
+  margin-bottom: 0;
+}
+
 .subheading {
   color: var(--text-secondary);
   font-size: 15px;
-  max-width: 60ch;
-  margin-top: calc(var(--space-8) * -1 + var(--space-2));
-  margin-bottom: var(--space-12);
+  max-width: 56ch;
+  margin-top: var(--space-3);
 }
 
-/* CSS columns rather than grid: the pieces are different heights and should
-   keep them, which is exactly what column flow does. */
-.grid {
+.stackButton {
+  margin-top: var(--space-6);
+  flex-shrink: 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 9px 18px;
+  transition: all 150ms ease;
+}
+
+.stackButton:hover {
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+}
+
+/* ==========================================================================
+   COLLAPSED PILE
+   A heap of prints on a desk. Compact on purpose — the art should read as a
+   side of the person, not outrank the engineering above it.
+   ========================================================================== */
+.pile {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 380px;
+  cursor: pointer;
+}
+
+.pileCard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--w);
+  padding: 8px 8px 22px;
+  background-color: var(--bg-surface);
+  border-radius: 2px;
+  box-shadow: var(--shadow-sm);
+  transform: translate(-50%, -50%) translate(var(--dx), var(--dy))
+    rotate(var(--tilt));
+  animation: pileSettle 320ms ease both;
+  animation-delay: var(--delay);
+  transition: box-shadow 250ms ease;
+}
+
+@keyframes pileSettle {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(var(--dx), calc(var(--dy) - 24px))
+      rotate(calc(var(--tilt) * 1.6));
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(var(--dx), var(--dy))
+      rotate(var(--tilt));
+  }
+}
+
+.pileImage {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hovering lifts the whole heap a little, so it reads as one object. */
+.pile:hover .pileCard {
+  box-shadow: var(--shadow-md);
+}
+
+.pileHint {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  color: var(--text-secondary);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  transition: color var(--transition);
+}
+
+.pile:hover .pileHint {
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   SPREAD
+   ========================================================================== */
+.spread {
   column-count: 2;
   column-gap: var(--space-4);
 }
 
-.item {
-  /* Stops a card being split across two columns. */
+.spreadItem {
   break-inside: avoid;
   margin-bottom: var(--space-4);
   transform: rotate(var(--tilt));
   transition: transform 250ms ease;
+  animation: spreadIn 320ms ease both;
+  animation-delay: var(--delay);
+}
+
+@keyframes spreadIn {
+  from {
+    opacity: 0;
+    transform: rotate(calc(var(--tilt) * 3)) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(var(--tilt)) scale(1);
+  }
 }
 
 .polaroid {
@@ -34,7 +153,7 @@
     background-color var(--transition);
 }
 
-.image {
+.spreadImage {
   width: 100%;
   height: auto;
   display: block;
@@ -58,41 +177,72 @@
   font-size: 11px;
 }
 
-/* Hovering straightens the card and lifts it above its neighbours. */
-.item:hover,
-.item:focus-within {
+.spreadItem:hover,
+.spreadItem:focus-within {
   position: relative;
   z-index: 10;
   transform: rotate(0deg) translateY(-4px) scale(1.02);
 }
 
-.item:hover .polaroid,
-.item:focus-within .polaroid {
+.spreadItem:hover .polaroid,
+.spreadItem:focus-within .polaroid {
   box-shadow: var(--shadow-md);
 }
 
+@media (min-width: 640px) {
+  .pile {
+    height: 400px;
+  }
+}
+
 @media (min-width: 1024px) {
-  .grid {
+  .headerSplit {
+    /* Text column deliberately narrower — the heap is the thing to look at. */
+    grid-template-columns: 5fr 6fr;
+    gap: var(--space-12);
+  }
+}
+
+@media (min-width: 1024px) {
+  .spread {
     column-count: 3;
     column-gap: var(--space-6);
   }
 
-  .item {
+  .spreadItem {
     margin-bottom: var(--space-6);
   }
 }
 
-/* Phones get a gentler tilt — the cards are narrow and ±2deg reads as wonky. */
+/* Phones: a tighter heap, and gentler angles once spread. */
 @media (max-width: 639px) {
-  .item {
+  .pile {
+    height: 320px;
+  }
+
+  .pileCard {
+    width: calc(var(--w) * 0.78);
+    transform: translate(-50%, -50%)
+      translate(calc(var(--dx) * 0.55), calc(var(--dy) * 0.7))
+      rotate(var(--tilt));
+  }
+
+  .spreadItem {
     transform: rotate(calc(var(--tilt) * 0.5));
   }
+
+
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .item,
-  .item:hover,
-  .item:focus-within {
+  .pileCard,
+  .spreadItem {
+    animation: none;
+  }
+
+  .spreadItem,
+  .spreadItem:hover,
+  .spreadItem:focus-within {
     transform: none;
     transition: none;
   }
