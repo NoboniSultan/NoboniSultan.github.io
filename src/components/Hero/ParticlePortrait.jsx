@@ -1,17 +1,18 @@
-// PORTRAIT SETUP: replace the image src below with your portrait photo.
-// Recommended: export your sketch/painting as a PNG with transparent background,
-// sized 600x600px. Place it at: src/assets/images/portrait.png
-// The image must be served from the same origin (no hotlinking external images)
-// due to canvas CORS restrictions.
+// PORTRAIT SETUP: the source image for the particle canvas.
+// To swap it, drop a square image in src/assets/images/ and repoint the import
+// below. The image must be served from the same origin (no hotlinking external
+// images) due to canvas CORS restrictions — the import keeps it same-origin in
+// both dev and the production build, which a literal '/src/...' path would not.
 //
-// The import below resolves to a same-origin URL in both dev and the production
-// build — a literal '/src/...' path would only work while running `npm run dev`.
-import portraitPlaceholder from '../../assets/images/portrait-placeholder.svg'
+// A transparent background makes the particles trace a cut-out silhouette; a
+// full-bleed painting like this one fills the frame edge to edge instead. Both
+// work, they just read differently once the particles scatter.
+import portraitSource from '../../assets/images/portrait.jpg'
 
 import { useEffect, useRef } from 'react'
 import styles from './Hero.module.css'
 
-const PORTRAIT_SRC = portraitPlaceholder
+const PORTRAIT_SRC = portraitSource
 
 // --- tuning -----------------------------------------------------------------
 const SAMPLE_STEP = 2 // sample the portrait every 2px

@@ -51,14 +51,14 @@
   justify-content: center;
 }
 
-/* Dashed frame reads as "art goes here" until the real portrait lands. */
 .portraitCanvasWrapper {
   width: 100%;
   max-width: 320px;
   aspect-ratio: 1;
-  border: 1px dashed var(--border);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   background-color: var(--bg-surface);
+  overflow: hidden;
   transition: border-color var(--transition);
 }
 
