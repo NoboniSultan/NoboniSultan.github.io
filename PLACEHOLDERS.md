@@ -1,32 +1,73 @@
 # Placeholders
 
-Everything the site ships with that is standing in for real content. Work
-through the list and tick items off as you replace them.
+What's still standing in for real content. Tick items off as you replace them.
 
-## Images to replace
+> The first image in each project's `images` array is the cover thumbnail.
+> Add as many additional images as you have screenshots — the ImageViewer
+> handles any number. Projects with a single image simply don't show the
+> gallery badge.
 
-Placeholders are SVGs so they stay sharp and tiny. When you swap in a real
-PNG, drop it in `src/assets/images/` and update the matching `import` at the
-top of `src/data/projects.js` (or in `ParticlePortrait.jsx` for the portrait).
+To add a screenshot: drop the file in `src/assets/images/`, add an `import` at
+the top of [src/data/projects.js](src/data/projects.js), and add an
+`{ src, caption }` entry to that project's `images` array. Captions show
+beneath the image when the gallery is open, so write them as a short label for
+what the screen shows.
 
-- [ ] `src/assets/images/portrait.png` — your sketch/painting portrait (600x600px PNG, transparent background)
-- [ ] `src/assets/images/arrear.png` — Arrear screenshot
-- [ ] `src/assets/images/compass.png` — Compass screenshot
-- [ ] `src/assets/images/bengal-bowls.png` — Bengal Bowls screenshot
-- [ ] `src/assets/images/taka-talk.png` — Taka Talk screenshot
-- [ ] `src/assets/images/flamingo.png` — Flamingo Lab screenshot
-- [ ] `src/assets/images/boi.png` — Boi screenshot
-- [ ] `src/assets/images/pediamap.png` — PediaMap screenshot
+**Export settings:** JPEG or PNG, ~1600px wide, under 300KB. Images are
+displayed with `object-fit: contain`, so nothing gets cropped — but very tall
+or very wide shots will letterbox more.
 
-Project screenshots look best at 16:9 — 1200x675px is plenty.
+## Images
+
+### Arrear
+- [x] `arrear-1.jpg` — Recovery overview (cover)
+- [x] `arrear-2.jpg` — Flagged items queue
+- [ ] optional: submissions tracker or audit log
+
+### Compass
+- [x] `compass-1.jpg` — Landing page (cover)
+- [ ] optional: the classroom view or the Socratic tutor in action — worth
+      adding, since the AI tutoring is the part worth showing
+
+### Bengal Bowls
+- [x] `bengal-bowls-1.jpg` — Storefront home (cover)
+- [x] `bengal-bowls-2.jpg` — Brand identity
+- [ ] optional: checkout or order flow
+
+### Taka Talk
+- [x] `taka-talk-1.jpg` — Budget dashboard (cover)
+- [x] `taka-talk-2.jpg` — Budget Buddy AI coach
+
+### Flamingo Lab
+- [x] `flamingo-1.jpg` — Team notes (cover)
+- [x] `flamingo-2.jpg` — Question board
+- [ ] optional: home or meetings view
+
+### Boi
+- [x] `boi-1.jpg` — My Shelf (cover)
+- [x] `boi-2.jpg` — Sign-in
+
+### PediaMap
+- [ ] `pediamap-1.jpg` is the **brand banner, not a product screen** — and at
+      648x282 it is the lowest-resolution asset on the site. A screenshot of
+      the actual provider search would serve this project much better.
+
+## Portrait
+
+- [x] `portrait.jpg` — the self-portrait painting
+
+The particle canvas samples this image pixel by pixel. Because the painting is
+full-bleed, the particles fill the whole frame. If you ever want the particles
+to trace a cut-out silhouette instead, export a version with a transparent
+background and repoint the import in
+[ParticlePortrait.jsx](src/components/Hero/ParticlePortrait.jsx).
 
 ## Links to update in `src/data/projects.js`
 
-Any URL still set to `'#'` means the icon is hidden on that card, because a
-dead link reads worse than no link. Fill one in and its icon appears.
+Any URL still set to `'#'` hides that icon on the card, because a dead link
+reads worse than no link. Fill one in and its icon appears.
 
-- [ ] Arrear `liveUrl`
-- [ ] Arrear `githubUrl`
+- [ ] Arrear `liveUrl` + `githubUrl`
 - [ ] Taka Talk `githubUrl`
 - [ ] Flamingo Lab `liveUrl` + `githubUrl`
 - [ ] Boi `liveUrl` + `githubUrl`
@@ -34,15 +75,16 @@ dead link reads worse than no link. Fill one in and its icon appears.
 
 ## Resume
 
-- [ ] `src/assets/resume.pdf` — add your latest resume PDF (the current file is a one-page stub)
+- [x] `src/assets/resume.pdf` — your real resume is in place
 
 ## Contact form
 
-- [ ] Wire the form to an email provider — see the TODO in `src/components/Contact/Contact.jsx`.
-      Resend or Formspree both work without a backend. Right now submitting does nothing.
+- [ ] Wire the form to an email provider — see the TODO in
+      [Contact.jsx](src/components/Contact/Contact.jsx). Resend or Formspree
+      both work without a backend. Right now submitting does nothing.
 
-## Deployment
+## Original assets
 
-- [ ] In the repo: **Settings → Pages → Build and deployment → Source: "GitHub Actions"**.
-      Until that is switched over, Pages keeps serving the old files and
-      `.github/workflows/deploy.yml` has no effect.
+Full-resolution originals of everything here are kept outside the repo at
+`~/Desktop/Portfolio-Project/original-assets/`, so re-exporting at a different
+size never means re-taking a screenshot.
