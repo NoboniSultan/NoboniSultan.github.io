@@ -8,6 +8,9 @@
 // Vite only resolves that path in dev, so an imported URL is what keeps the
 // screenshots working in the production GitHub Pages build.
 //
+// liveUrl and githubUrl are null when a project has no such link — the card
+// renders no button at all rather than a dead '#'.
+//
 // TODO: add your screenshot paths here — any number of images
 // Recommended export settings: JPEG or PNG, 1600px wide (16:9), <300KB
 // Place file at: src/assets/images/[project-name]-[number].jpg
@@ -38,10 +41,8 @@ export const projects = [
       { src: arrear1, caption: 'Recovery overview — flagged value, monthly recovery and program totals' },
       { src: arrear2, caption: 'Flagged items queue with triggering criteria and estimated value' },
     ],
-    // TODO: add live URL
-    liveUrl: '#',
-    // TODO: add GitHub repo URL
-    githubUrl: '#',
+    liveUrl: 'https://arrear.sultannoboni.workers.dev/',
+    githubUrl: null,
     featured: true,
   },
   {
@@ -70,7 +71,7 @@ export const projects = [
       { src: bengalBowls2, caption: 'Brand identity' },
     ],
     liveUrl: 'https://provasultan-crypto.github.io/Bengal-Bowls/#',
-    githubUrl: 'https://github.com/provasultan-crypto/Bengal-Bowls',
+    githubUrl: null,
     featured: true,
   },
   {
@@ -85,8 +86,7 @@ export const projects = [
       { src: takaTalk2, caption: 'Budget Buddy — the encouraging AI money coach' },
     ],
     liveUrl: 'https://envelope.build/taka-talk',
-    // TODO: add GitHub repo URL
-    githubUrl: '#',
+    githubUrl: null,
     featured: false,
   },
   {
@@ -100,10 +100,8 @@ export const projects = [
       { src: flamingo1, caption: 'Team notes — structured, shareable and filterable by tag' },
       { src: flamingo2, caption: 'Question board for tracking team questions and answers' },
     ],
-    // TODO: add live URL
-    liveUrl: '#',
-    // TODO: add GitHub repo URL
-    githubUrl: '#',
+    liveUrl: null,
+    githubUrl: 'https://github.com/NoboniSultan/flamingo-lab',
     featured: false,
   },
   {
@@ -117,10 +115,8 @@ export const projects = [
       { src: boi1, caption: 'My Shelf — status, genre filters and per-book ratings' },
       { src: boi2, caption: 'Sign-in' },
     ],
-    // TODO: add live URL
-    liveUrl: '#',
-    // TODO: add GitHub repo URL
-    githubUrl: '#',
+    liveUrl: null,
+    githubUrl: null,
     featured: false,
   },
   {
@@ -134,10 +130,8 @@ export const projects = [
       // TODO: add a UI screenshot — this is the brand banner, not a product screen
       { src: pediamap1, caption: 'Brand identity' },
     ],
-    // TODO: add live URL
-    liveUrl: '#',
-    // TODO: add GitHub repo URL
-    githubUrl: '#',
+    liveUrl: null,
+    githubUrl: 'https://github.com/asia-noboni-mls/PediaMap',
     featured: false,
   },
 ]
