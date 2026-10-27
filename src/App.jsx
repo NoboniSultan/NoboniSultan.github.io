@@ -4,6 +4,7 @@ import Hero from './components/Hero/Hero'
 import Projects from './components/Projects/Projects'
 import Skills from './components/Skills/Skills'
 import Experience from './components/Experience/Experience'
+import Art from './components/Art/Art'
 import Contact from './components/Contact/Contact'
 
 const THEME_KEY = 'portfolio-theme'
@@ -41,6 +42,7 @@ export default function App() {
         <Projects />
         <Skills />
         <Experience />
+        <Art />
         <Contact />
       </main>
 

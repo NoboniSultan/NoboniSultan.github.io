@@ -1,0 +1,99 @@
+.subheading {
+  color: var(--text-secondary);
+  font-size: 15px;
+  max-width: 60ch;
+  margin-top: calc(var(--space-8) * -1 + var(--space-2));
+  margin-bottom: var(--space-12);
+}
+
+/* CSS columns rather than grid: the pieces are different heights and should
+   keep them, which is exactly what column flow does. */
+.grid {
+  column-count: 2;
+  column-gap: var(--space-4);
+}
+
+.item {
+  /* Stops a card being split across two columns. */
+  break-inside: avoid;
+  margin-bottom: var(--space-4);
+  transform: rotate(var(--tilt));
+  transition: transform 250ms ease;
+}
+
+.polaroid {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background-color: var(--bg-surface);
+  padding: 12px 12px 32px;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition:
+    box-shadow 250ms ease,
+    background-color var(--transition);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.caption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: var(--space-3);
+}
+
+.title {
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.meta {
+  color: var(--text-secondary);
+  font-size: 11px;
+}
+
+/* Hovering straightens the card and lifts it above its neighbours. */
+.item:hover,
+.item:focus-within {
+  position: relative;
+  z-index: 10;
+  transform: rotate(0deg) translateY(-4px) scale(1.02);
+}
+
+.item:hover .polaroid,
+.item:focus-within .polaroid {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    column-count: 3;
+    column-gap: var(--space-6);
+  }
+
+  .item {
+    margin-bottom: var(--space-6);
+  }
+}
+
+/* Phones get a gentler tilt — the cards are narrow and ±2deg reads as wonky. */
+@media (max-width: 639px) {
+  .item {
+    transform: rotate(calc(var(--tilt) * 0.5));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item,
+  .item:hover,
+  .item:focus-within {
+    transform: none;
+    transition: none;
+  }
+}
