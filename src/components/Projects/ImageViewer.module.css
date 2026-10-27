@@ -15,7 +15,11 @@
 .image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* contain, not cover: these are UI screenshots, and cropping slices through
+     sidebars and headers mid-word. Letterboxing keeps every screen readable
+     and the card heights uniform. */
+  object-fit: contain;
+  background-color: var(--bg-primary);
 }
 
 /* Gentle horizontal slide as the gallery steps between screens. */

@@ -1,87 +1,171 @@
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
-  margin-bottom: var(--space-8);
+/* perspective on the container is what makes the rotateY read as a card
+   turning in space rather than a flat skew. */
+.stage {
+  position: relative;
+  perspective: 1000px;
 }
 
-.header .sectionTitle {
-  margin-bottom: 0;
+.cardSlot {
+  transform-style: preserve-3d;
 }
 
-.arrows {
-  display: flex;
-  gap: var(--space-2);
+/* --- card flip + lift ---------------------------------------------------- */
+@keyframes cardExitForward {
+  from {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg) translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.96) rotateY(8deg) translateX(-20px);
+  }
 }
 
-.arrowButton {
+@keyframes cardEnterForward {
+  from {
+    opacity: 0;
+    transform: rotateY(-8deg) translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(0deg) translateX(0);
+  }
+}
+
+@keyframes cardExitBackward {
+  from {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg) translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.96) rotateY(-8deg) translateX(20px);
+  }
+}
+
+@keyframes cardEnterBackward {
+  from {
+    opacity: 0;
+    transform: rotateY(8deg) translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(0deg) translateX(0);
+  }
+}
+
+.cardExitForward {
+  animation: cardExitForward 200ms ease-in both;
+}
+
+.cardEnterForward {
+  animation: cardEnterForward 250ms ease-out both;
+}
+
+.cardExitBackward {
+  animation: cardExitBackward 200ms ease-in both;
+}
+
+.cardEnterBackward {
+  animation: cardEnterBackward 250ms ease-out both;
+}
+
+/* Reduced motion: keep the timing so the animationend handler still fires,
+   but drop the rotation and scale down to a plain crossfade. */
+@media (prefers-reduced-motion: reduce) {
+  @keyframes cardFadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes cardFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .cardExitForward,
+  .cardExitBackward {
+    animation: cardFadeOut 200ms ease both;
+  }
+
+  .cardEnterForward,
+  .cardEnterBackward {
+    animation: cardFadeIn 200ms ease both;
+  }
+}
+
+/* --- navigation ---------------------------------------------------------- */
+.navButton {
+  position: absolute;
+  top: 120px;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   color: var(--text-secondary);
-  background-color: var(--bg-surface);
+  background-color: color-mix(in srgb, var(--bg-primary) 72%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border-radius: 999px;
   transition:
     color var(--transition),
     border-color var(--transition),
     background-color var(--transition);
 }
 
-.arrowButton:hover:not(:disabled) {
+.navButton:hover:not(:disabled) {
   color: var(--text-primary);
   border-color: var(--border-hover);
   background-color: var(--bg-surface-hover);
+}
+
+.navButton:disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* On phones the arrows sit over the image edges — there is no room beside
+   the card, and swiping is the primary gesture there anyway. */
+.navPrev {
+  left: var(--space-2);
+}
+
+.navNext {
+  right: var(--space-2);
 }
 
 .arrowFlipped {
   transform: rotate(180deg);
 }
 
-.arrowButton:disabled {
-  opacity: 0.35;
-  cursor: not-allowed;
-}
-
-/* Native scroll-snap carousel: swipe, arrow buttons and keyboard all move the
-   same scroll position, so there is only one source of truth for position. */
-.track {
-  position: relative;
-  display: flex;
-  gap: var(--space-6);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  padding-bottom: var(--space-2);
-}
-
-.track::-webkit-scrollbar {
-  display: none;
-}
-
-.slide {
-  flex: 0 0 100%;
-  scroll-snap-align: start;
-}
-
+/* --- dots ---------------------------------------------------------------- */
 .dots {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: var(--space-2);
   margin-top: var(--space-6);
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 999px;
   background-color: var(--border);
   transition:
-    background-color var(--transition),
-    width var(--transition);
+    width 200ms ease,
+    background-color 200ms ease;
 }
 
 .dot:hover {
@@ -89,7 +173,7 @@
 }
 
 .dotActive {
-  width: 24px;
+  width: 20px;
   background-color: var(--accent);
 }
 
@@ -98,8 +182,22 @@
 }
 
 @media (min-width: 1024px) {
-  /* One full card plus a peek of the next, hinting there is more to browse. */
-  .slide {
-    flex-basis: 86%;
+  /* Room either side so the arrows flank the card instead of covering it. */
+  .stage {
+    padding-inline: 64px;
+  }
+
+  .navButton {
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--bg-surface);
+  }
+
+  .navPrev {
+    left: 0;
+  }
+
+  .navNext {
+    right: 0;
   }
 }

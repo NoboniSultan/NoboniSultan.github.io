@@ -149,7 +149,9 @@ export default function ImageViewer({ project }) {
 
       {/* Drawer: grid-template-rows 0fr → 1fr gives a real height transition
           without measuring anything in JS, and keeps the panel in flow so the
-          page below shifts down rather than being covered. */}
+          page below shifts down rather than being covered. Projects with a
+          single screenshot have nothing to open, so they skip it entirely. */}
+      {hasGallery && (
       <div
         id={panelId}
         ref={panelRef}
@@ -208,6 +210,7 @@ export default function ImageViewer({ project }) {
           <p className={styles.caption}>{activeImage.caption}</p>
         </div>
       </div>
+      )}
     </div>
   )
 }
