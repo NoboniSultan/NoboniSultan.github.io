@@ -128,7 +128,7 @@ export default function Lightbox({ artworks, index, onClose, onNavigate }) {
         <figcaption className={styles.caption}>
           <span className={styles.title}>{artwork.title}</span>
           <span className={styles.meta}>
-            {artwork.medium} · {artwork.year}
+            {artwork.year ? `${artwork.medium} · ${artwork.year}` : artwork.medium}
           </span>
         </figcaption>
       </figure>

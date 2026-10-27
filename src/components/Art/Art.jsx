@@ -45,8 +45,10 @@ export default function Art() {
                 <img className={styles.image} src={artwork.image} alt={artwork.title} />
                 <span className={styles.caption}>
                   <span className={styles.title}>{artwork.title}</span>
+                  {/* Year is optional — show the medium alone when it is unset
+                      rather than a dangling separator. */}
                   <span className={styles.meta}>
-                    {artwork.medium} · {artwork.year}
+                    {artwork.year ? `${artwork.medium} · ${artwork.year}` : artwork.medium}
                   </span>
                 </span>
               </button>

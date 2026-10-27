@@ -62,20 +62,25 @@ to trace a cut-out silhouette instead, export a version with a transparent
 background and repoint the import in
 [ParticlePortrait.jsx](src/components/Hero/ParticlePortrait.jsx).
 
-## Art images to add
+## Art — titles and years need your eye
 
-- [ ] `src/assets/images/art/` — add your artwork images here.
-      Naming convention: `art-1.jpg`, `art-2.jpg`, etc.
-      Then update [src/data/artworks.js](src/data/artworks.js) with matching
-      imports, titles, mediums, and years.
+All 16 pieces are in and live. Two things are mine, not yours:
 
-Only the self-portrait is in there so far. I did not pull anything from
-`~/Desktop/coolpix/art` — that folder holds other artists' work alongside
-yours, and publishing someone else's painting under your name is not a
-mistake worth risking. Point me at your own art folder and I will wire it up.
+- [ ] **Titles** are descriptive stand-ins I wrote from what each piece shows
+      ("Two Faces", "Clay Head", "Mirrored"). Three came from your filenames
+      and should be right: *Embrace*, *I Stay, I Pray*, *Stargazer*. Rename
+      any of the others in [src/data/artworks.js](src/data/artworks.js).
+- [ ] **Years** are all `null` — file dates are copy dates, not when you made
+      the work, so there was nothing reliable to read. Set `year` and it
+      appears after the medium; left null, the card shows the medium alone.
+- [ ] Check the mediums too — I read them off the filenames and the images.
+      *Embrace* I called charcoal on paper and *Stargazer* ink and digital;
+      both were judgement calls.
+- [ ] *Starry Night, after Van Gogh* is titled to credit the source. Rename it
+      if you'd rather not.
 
-The section hides itself entirely while the array is empty, so there is no
-broken-looking gap if you remove everything.
+To add more: drop the file in `src/assets/images/art/`, add an import at the
+top of `artworks.js`, and append an entry. Any number, any mix of heights.
 
 ## Links in `src/data/projects.js`
 
