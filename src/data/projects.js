@@ -107,16 +107,17 @@ export const projects = [
   {
     id: 6,
     title: 'Boi',
-    tagline: 'Reading list manager with progress tracking and notes',
+    tagline: 'Reading tracker with per-user accounts — boi means "books" in Bangla',
     description:
-      'Full-stack web application for managing personal reading lists — track progress, rate books, and maintain reading notes.',
-    tags: ['HTML', 'CSS', 'JavaScript', 'React'],
+      'Full-stack reading tracker. Each person registers an account and keeps their own shelf: add books, move them between want-to-read, reading and finished, rate them and keep notes, then filter by status or genre. Express serves the API and the React build from one origin, so sessions work without any CORS setup.',
+    tags: ['React', 'Vite', 'Node.js', 'Express', 'PostgreSQL', 'bcrypt'],
     images: [
       { src: boi1, caption: 'My Shelf — status, genre filters and per-book ratings' },
       { src: boi2, caption: 'Sign-in' },
     ],
-    liveUrl: null,
-    githubUrl: null,
+    liveUrl: 'https://boi-noboni.onrender.com',
+    githubUrl:
+      'https://github.com/The-Marcy-Lab-School-Assignments/full-stack-project-remix-NoboniSultan',
     featured: false,
   },
   {
